@@ -28,7 +28,7 @@ echo  Installing required libraries (this may take a few minutes on first run)..
 echo  Please wait — do not close this window.
 echo.
 
-python -m pip install --upgrade pip --quiet
+python -m pip install --upgrade pip
 
 python -m pip install ^
     sentence-transformers ^
@@ -39,8 +39,7 @@ python -m pip install ^
     python-docx ^
     scikit-learn ^
     torch ^
-    Pillow ^
-    --quiet
+    Pillow
 
 if errorlevel 1 (
     echo.

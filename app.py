@@ -157,6 +157,7 @@ class FormFillerApp(tk.Tk):
             messagebox.showwarning("No file", "Please browse for a file first.")
             return
         self._run_btn.config(state="disabled")
+        self._browse_btn.config(state="disabled")
         self._dl_btn.config(state="disabled")
         self._set_progress(0, "Starting...")
         threading.Thread(target=self._worker, daemon=True).start()
@@ -202,6 +203,7 @@ class FormFillerApp(tk.Tk):
             self._output_path = tmp_out
             self._ui_progress(100, "Form filled successfully!")
             self.after(0, lambda: self._dl_btn.config(state="normal"))
+            self._browse_btn.config(state="normal")
         except Exception as e:
             self._ui_error(f"Error: {e}")
         finally:
