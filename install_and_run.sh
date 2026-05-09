@@ -24,7 +24,7 @@ echo " Installing required libraries (first run may take a few minutes)..."
 echo " Please wait."
 echo ""
 
-python3 -m pip install --upgrade pip --quiet
+python3 -m pip install --upgrade pip
 python3 -m pip install \
     sentence-transformers \
     pandas \
@@ -34,8 +34,7 @@ python3 -m pip install \
     python-docx \
     scikit-learn \
     torch \
-    Pillow \
-    --quiet
+    Pillow
 
 echo ""
 echo " [OK] All libraries ready."

@@ -30,7 +30,8 @@ def extract_docx_fields(docx_path):
                 "location": ("paragraph", para),
                 "field_type": "text"
             })
-
+    if not fields:
+        print("No fields found in this Word Document")
     return fields, doc
 
 

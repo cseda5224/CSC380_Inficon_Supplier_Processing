@@ -24,6 +24,8 @@ def extract_pdf_fields(pdf_path):
 
 def autofill_pdf(pdf, fields, match_results, output_path):
     match_lookup = {m.get("form_question"): m for m in match_results}
+    a = []
+    b = []
     for f in fields:
         field_name = f["field_name"]
         page = pdf[f["page_num"]]
@@ -35,10 +37,13 @@ def autofill_pdf(pdf, fields, match_results, output_path):
 
         decision = match.get("decision", "").lower()
 
-        if decision not in ["autofill"]:
+        if decision not in ["autofill", "review suggested"]:
             continue
 
         text_to_insert = str(match.get("answer", ""))
+        if decision == "review suggested":
+            a.append(field_name)
+            b.append(text_to_insert)
 
         if f["field_type"] == '2':
             x = rect.x0
@@ -59,6 +64,7 @@ def autofill_pdf(pdf, fields, match_results, output_path):
                 fontsize=8,
                 color=(0, 0, 0),
             )
-
+    print(a)
+    print(b)
     pdf.save(output_path)
     print(f"PDF saved as {output_path}")

@@ -24,6 +24,23 @@ for /f "tokens=2 delims= " %%v in ('python --version 2^>^&1') do set PY_VER=%%v
 echo  [OK] Python %PY_VER% found.
 echo.
 
+set "VC_REG=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64"
+reg query %VC_REG% /v Version >nul 2>&1
+
+if %errorlevel% equ 0 (
+    echo  [OK] Microsoft Visual C++ Redistributable installation found
+    echo.
+) else (
+   echo  [!] Microsoft Visual C++ Redistributable is not installed or not in PATH
+   echo.
+   echo  Please install the latest release from:
+   echo
+   echo.
+   echo.
+   pause
+   exit /b 1
+)
+
 echo  Installing required libraries (this may take a few minutes on first run)...
 echo  Please wait — do not close this window.
 echo.

@@ -189,7 +189,7 @@ class FormFillerApp(tk.Tk):
                                          "field_name": f["field_name"]} for f in fields])
                 results = match_questions(model, data_df, conf_df, threshold=0.80)
                 self._ui_progress(80, "Filling PDF...")
-                autofill_pdf(pdf, fields, results, tmp_out)
+                a = autofill_pdf(pdf, fields, results, tmp_out)
             else:
                 self._ui_progress(50, "Extracting Word fields...")
                 from fill_docx_form import extract_docx_fields, autofill_docx
@@ -213,7 +213,8 @@ class FormFillerApp(tk.Tk):
         if not self._output_path or not os.path.exists(self._output_path):
             return
         ext = os.path.splitext(self._output_path)[1]
-        dest = filedialog.asksaveasfilename(defaultextension=ext, initialfile="filled_form"+ext)
+        a = self._selected_path.split("/")
+        dest = filedialog.asksaveasfilename(defaultextension=ext, initialfile="filled_"+a[len(a)-1])
         if dest:
             shutil.copy2(self._output_path, dest)
             messagebox.showinfo("Success", f"Saved to: {os.path.basename(dest)}")
