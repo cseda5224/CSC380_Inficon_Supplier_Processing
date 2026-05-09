@@ -182,6 +182,8 @@ class FormFillerApp(tk.Tk):
             
             # This is so that it doesn't autosave without asking
             tmp_out = os.path.join(tempfile.gettempdir(), "inficon_temp_filled" + ext)
+            a = []
+            b = []
 
             if ext == ".pdf":
                 self._ui_progress(50, "Extracting PDF fields...")
@@ -192,10 +194,7 @@ class FormFillerApp(tk.Tk):
                 results = match_questions(model, data_df, conf_df, threshold=0.80)
                 self._ui_progress(80, "Filling PDF...")
                 a, b = autofill_pdf(pdf, fields, results, tmp_out)
-                if len(a) > 0:
-                    tmp_rev_out = os.path.join(tempfile.gettempdir(), "marked_for_review.txt")
-                    create_file(a,b,tmp_rev_out)
-                    display_file(tmp_rev_out)
+
             else:
                 self._ui_progress(50, "Extracting Word fields...")
                 from fill_docx_form import extract_docx_fields, autofill_docx
@@ -210,6 +209,10 @@ class FormFillerApp(tk.Tk):
             self._ui_progress(100, "Form filled successfully!")
             self.after(0, lambda: self._dl_btn.config(state="normal"))
             self._browse_btn.config(state="normal")
+            if len(a) > 0:
+                tmp_rev_out = os.path.join(tempfile.gettempdir(), "marked_for_review.txt")
+                create_file(a, b, tmp_rev_out)
+                display_file(tmp_rev_out)
         except Exception as e:
             self._ui_error(f"Error: {e}")
         finally:
