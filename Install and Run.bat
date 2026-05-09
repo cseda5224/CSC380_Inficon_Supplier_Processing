@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
-title Form Filler — Setup & Launch
+title Form Filler — Setup and Launch
 
 echo.
 echo  =========================================
@@ -34,7 +34,7 @@ if %errorlevel% equ 0 (
    echo  [ERROR] Microsoft Visual C++ Redistributable is not installed or not in PATH
    echo.
    echo  Please install the latest release from:
-   echo     linkHere
+   echo     https://aka.ms/vc14/vc_redist.x64.exe
    echo.
    echo.
    pause

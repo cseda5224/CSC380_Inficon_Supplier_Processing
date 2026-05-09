@@ -28,10 +28,10 @@ def match_questions(
         best_score = float(scores[best_idx])
         matched_row = conf_df.iloc[best_idx]
 
-        if best_score >= .80:
+        if best_score >= .78:
             decision = "autofill"
             answer = matched_row["answer_text"]
-        elif  0.70 < best_score < 0.80:
+        elif  0.70 < best_score < 0.78:
             decision = "review suggested"
             answer = matched_row["answer_text"]
         else:

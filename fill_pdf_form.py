@@ -44,26 +44,26 @@ def autofill_pdf(pdf, fields, match_results, output_path):
         if decision == "review suggested":
             a.append(field_name)
             b.append(text_to_insert)
-
-        if f["field_type"] == '2':
-            x = rect.x0
-            y = rect.y0 + 8
-            if text_to_insert.lower() in ["yes", "true", "1", "x"]:
+        else:
+            if f["field_type"] == '2':
+                x = rect.x0
+                y = rect.y0 + 8
+                if text_to_insert.lower() in ["yes", "true", "1", "x"]:
+                    page.insert_text(
+                        (x, y),
+                        "x",
+                        fontsize=10,
+                        color=(0, 0, 0)
+                    )
+            else:
+                x = rect.x0
+                y = rect.y0 + 10
                 page.insert_text(
                     (x, y),
-                    "x",
-                    fontsize=10,
-                    color=(0, 0, 0)
+                    text_to_insert,
+                    fontsize=8,
+                    color=(0, 0, 0),
                 )
-        else:
-            x = rect.x0
-            y = rect.y0 + 10
-            page.insert_text(
-                (x, y),
-                text_to_insert,
-                fontsize=8,
-                color=(0, 0, 0),
-            )
     print(a)
     print(b)
     pdf.save(output_path)
