@@ -6,7 +6,9 @@
 ## How to Use
 
 ### Windows
-1. Make sure **Python** is installed — download free from https://www.python.org/downloads/
+1. Make sure **Python** and the **Microsoft Visual C++ Redistributable** are installed 
+   -  Download Python for free from https://www.python.org/downloads/
+   -  Download the **Microsoft Visual C++ Redistributable** for free from https://aka.ms/vc14/vc_redist.x64.exe
    -  During installation, check **"Add Python to PATH"**
 2. Double-click **`Install and Run.bat`**
 3. The first launch installs all needed libraries automatically (takes 2–5 min)
@@ -31,8 +33,10 @@
 
 The app uses AI to match each field in your form to the company data stored in `confluence_data.json`.
 
-- **Auto-filled** — high-confidence matches (≥80%)
-- **Review suggested** — medium-confidence matches (70–80%), shown in orange
+- **Auto-filled** — high-confidence matches (≥78%)
+- **Review suggested** — medium-confidence matches (65–78%) 
+	- A list of feilds marked for review, alongside their corresponding matches are displayed for PDF documents
+	- Shown in orange for Word Documents
 - **Needs manual review** — low-confidence matches, left blank
 
 ---
@@ -47,6 +51,7 @@ The app uses AI to match each field in your form to the company data stored in `
 | `vector_embedding_model.py` | Embedding model loader |
 | `fill_pdf_form.py` | PDF form filler |
 | `fill_docx_form.py` | Word form filler |
+| `display_marked_for_review.py` | Displays fields marked for review |
 | `Install and Run.bat` | Windows launcher |
 | `install_and_run.sh` | Mac/Linux launcher |
 
@@ -55,6 +60,8 @@ The app uses AI to match each field in your form to the company data stored in `
 ## Troubleshooting
 
 **"Python is not installed"** — Download from python.org and re-run the launcher.
+
+**"Microsoft Visual C++ Redistributable is not installed"** — Download from attached link and re-run the launcher.
 
 **App opens but nothing fills** — Your form may not have standard fillable fields.
 
