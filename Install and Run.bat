@@ -34,7 +34,7 @@ if %errorlevel% equ 0 (
    echo  [!] Microsoft Visual C++ Redistributable is not installed or not in PATH
    echo.
    echo  Please install the latest release from:
-   echo
+   echo     linkHere
    echo.
    echo.
    pause
