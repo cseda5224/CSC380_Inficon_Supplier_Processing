@@ -1,6 +1,9 @@
 from pypdf import PdfReader, PdfWriter
 import fitz
 
+from display_marked_for_review import create_file
+
+
 def extract_pdf_fields(pdf_path):
     pdf = fitz.open(pdf_path)
     fields = []
@@ -64,7 +67,7 @@ def autofill_pdf(pdf, fields, match_results, output_path):
                     fontsize=8,
                     color=(0, 0, 0),
                 )
-    print(a)
-    print(b)
+
     pdf.save(output_path)
     print(f"PDF saved as {output_path}")
+    return a, b

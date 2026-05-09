@@ -31,7 +31,7 @@ def match_questions(
         if best_score >= .78:
             decision = "autofill"
             answer = matched_row["answer_text"]
-        elif  0.70 < best_score < 0.78:
+        elif  0.65 < best_score < 0.78:
             decision = "review suggested"
             answer = matched_row["answer_text"]
         else:

@@ -8,6 +8,8 @@ import sys
 import tempfile
 from PIL import Image, ImageTk
 
+from display_marked_for_review import create_file, display_file
+
 if getattr(sys, "frozen", False):
     BASE_DIR = sys._MEIPASS
 else:
@@ -189,7 +191,11 @@ class FormFillerApp(tk.Tk):
                                          "field_name": f["field_name"]} for f in fields])
                 results = match_questions(model, data_df, conf_df, threshold=0.80)
                 self._ui_progress(80, "Filling PDF...")
-                a = autofill_pdf(pdf, fields, results, tmp_out)
+                a, b = autofill_pdf(pdf, fields, results, tmp_out)
+                if len(a) > 0:
+                    tmp_rev_out = os.path.join(tempfile.gettempdir(), "marked_for_review.txt")
+                    create_file(a,b,tmp_rev_out)
+                    display_file(tmp_rev_out)
             else:
                 self._ui_progress(50, "Extracting Word fields...")
                 from fill_docx_form import extract_docx_fields, autofill_docx
