@@ -10,7 +10,7 @@ echo.
 
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo  [!] Python is not installed or not in PATH.
+    echo  [ERROR] Python is not installed or not in PATH.
     echo.
     echo  Please install Python 3.10 or newer from:
     echo    https://www.python.org/downloads/
@@ -31,7 +31,7 @@ if %errorlevel% equ 0 (
     echo  [OK] Microsoft Visual C++ Redistributable installation found
     echo.
 ) else (
-   echo  [!] Microsoft Visual C++ Redistributable is not installed or not in PATH
+   echo  [ERROR] Microsoft Visual C++ Redistributable is not installed or not in PATH
    echo.
    echo  Please install the latest release from:
    echo     linkHere
@@ -60,7 +60,7 @@ python -m pip install ^
 
 if errorlevel 1 (
     echo.
-    echo  [!] Some packages failed to install.
+    echo  [ERROR] Some packages failed to install.
     echo  Check your internet connection and try again.
     echo.
     pause
@@ -78,7 +78,7 @@ python app.py
 
 if errorlevel 1 (
     echo.
-    echo  [!] The application exited with an error.
+    echo  [ERROR] The application exited with an error.
     echo  Press any key to close.
     pause
 )
