@@ -1,5 +1,11 @@
 [
   {
+    "question_id": "Q0",
+    "question_text": "Email address",
+    "answer_text": "",
+    "field_type": "text"
+  },
+  {
     "question_id": "Q1",
     "question_text": "Company Name",
     "answer_text": "Inficon Inc.",
@@ -13,7 +19,7 @@
   },
   {
     "question_id": "Q3",
-    "question_text": "Subsidary of",
+    "question_text": "Subsidiary of",
     "answer_text": "INFICON Holding AG",
     "field_type": "text"
   },
@@ -48,32 +54,38 @@
     "field_type": "text"
   },
   {
+    "question_id": "Q8.99",
+    "question_text": "Small Business NAICS Codes 1",
+    "answer_text": "",
+    "field_type": "text"
+  },
+  {
     "question_id": "Q9",
-    "question_text": "NAICS Codes 1",
+    "question_text": "Large Business NAICS Codes 1",
     "answer_text": "334513",
     "field_type": "text"
   },
   {
     "question_id": "Q9.1",
-    "question_text": "NAICS Codes 2",
+    "question_text": "Large Business NAICS Codes 2",
     "answer_text": "334515",
     "field_type": "text"
   },
   {
     "question_id": "Q9.2",
-    "question_text": "NAICS Codes 3",
+    "question_text": "Large Business NAICS Codes 3",
     "answer_text": "334516",
     "field_type": "text"
   },
   {
     "question_id": "Q9.3",
-    "question_text": "NAICS Codes 4",
+    "question_text": "Large Business NAICS Codes 4",
     "answer_text": "333200",
     "field_type": "text"
   },
   {
     "question_id": "Q9.4",
-    "question_text": "NAICS Codes 5",
+    "question_text": "Large Business NAICS Codes 5",
     "answer_text": "532490",
     "field_type": "text"
   },
@@ -94,6 +106,12 @@
     "question_text": "State Incorporated In",
     "answer_text": "Delaware",
     "field_type": "text"
+  },
+  {
+  "question_id": "Q12.1",
+  "question_text": "Incorporated",
+  "answer_text": "Yes",
+  "field_type": "checkbox"
   },
   {
     "question_id": "Q13",
@@ -313,7 +331,7 @@
   },
   {
     "question_id": "Q49",
-    "question_text": "Federal Employer ID/Tax ID/FIN?",
+    "question_text": "Federal Identification Number",
     "answer_text": "16-159-1542",
     "field_type": "text"
   },
